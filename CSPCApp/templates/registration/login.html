@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{#{% if form.errors %}#}
+{#<p>Your username and password didn't match. Please try again.</p>#}
+{#{% endif %}#}
+{##}
+{#{% if next %}#}
+{#    {% if user.is_authenticated %}#}
+{#    <p>Your account doesn't have access to this page. To proceed,#}
+{#    please login with an account that has access.</p>#}
+{#    {% else %}#}
+{#    <p>Please login to see this page.</p>#}
+{#    {% endif %}#}
+{#{% endif %}#}
+{##}
+{#<form method="post" action="{% url 'login' %}">#}
+{#{% csrf_token %}#}
+{##}
+{#<div>#}
+{#  <td>{{ form.username.label_tag }}</td>#}
+{#  <td>{{ form.username }}</td>#}
+{#</div>#}
+{#<div>#}
+{#  <td>{{ form.password.label_tag }}</td>#}
+{#  <td>{{ form.password }}</td>#}
+{#</div>#}
+{##}
+{#<div>#}
+{#  <input type="submit" value="login" />#}
+{#  <input type="hidden" name="next" value="{{ next }}" />#}
+{#</div>#}
+{#</form>#}
+{##}
+{# Assumes you setup the password_reset view in your URLconf#}
+{#<p><a href="{% url 'password_reset' %}">Lost password?</a></p>#}
+{##}
+{#{% endblock %}#}
+
+    {% load staticfiles %}
+
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="login">
+                <form method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                <p><center><img src="{% static 'images/bird.png' %}" width="84" height="84" ></center></p>
+
+                    <center>
+                        <div>
+                            <h2>
+                            Система<br>
+                            Контроля за<br>
+                            Платными<br>
+                            Курсами <br><br>
+                            </h2>
+                        </div>
+                    </center>
+
+
+                <center><input class="box_meta" type="text" name="username" autofocus="" maxlength="254" required="" id="id_username" placeholder="Логин"><br></center>
+                <center><input class="box_meta" type="password" name="password" required="" id="id_password" placeholder="Пароль"><br></center>
+
+                <center><input class="box_meta" type="submit" value="Войти" /></center>
+                <input type="hidden" name="next" value="{{ next }}" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{#!DOCTYPE html> #}
+{#<html lang="en"> #}
+{#<head> #}
+{##}
+{#</head> #}
+{#<body data-spy="scroll" data-target="#navbar-example"> #}
+{#<div class="container-fluid"> #}
+{#<div class="col-md-12"> #}
+{#<div class="login"> #}
+{#<p><center><img src="images/bird.png" ></center></p> #}
+{#<h2> #}
+{#Система<br> #}
+{#Контроля за<br> #}
+{#Платными<br> #}
+{#Курсами <br> #}
+{#</h2> #}
+{##}
+{#<h3> Логин : </h3> #}
+{#<h3> Пароль : </h3> #}
+{#<h1><a href="#"> Войти </a></h1> #}
+{#</div> #}
+{#</div> #}
+{#</body> #}
+{#</html>#}

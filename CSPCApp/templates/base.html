@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Авторизация</title>
+    <!— Bootstrap —>
+{#    <link href="css/bootstrap.min.css" rel="stylesheet">#}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="1.css" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+</head>
+<body>
+
+
+    <div class="page-header" style="/*height: 50%;*/">
+        {% if user.is_authenticated %}
+            <h3>
+                {% if user.groups.all.0.name == 'SuperUser' %}
+{#                    <div class="suwarning">[SU Аккаунт]</div>#}
+                    <font color="red">[SU Аккаунт]</font>
+                {% endif %}
+                {{ user.username }} | <a href="{% url 'logout' %}?next={% url 'login' %}">Выйти</a>
+            </h3>
+        {% endif %}
+
+    <h2><a href="{% url 'mainPage' %}">СКПК</a></h2>
+
+
+
+</div>
+<div class="contentclass">
+{% block content %}
+    Replace this.
+{% endblock %}
+</div>
+
+</body>

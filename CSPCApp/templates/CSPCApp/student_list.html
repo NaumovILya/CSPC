@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'CSPCApp_student_list' %}">Student Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>school</td>
+    <td>name</td>
+    <td>grade</td>
+    <td>letter</td>
+    <td>passportserialnumber</td>
+    <td>passportissued</td>
+    <td>homeaddress</td>
+    <td>phone</td>
+    <td>parentname</td>
+    <td>parentpassportserialnumber</td>
+    <td>parentpassportissued</td>
+    <td>parentinn</td>
+    <td>parenthomeaddress</td>
+    <td>parentphone</td>
+    <td>created</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.school }}</td>
+    <td>{{ object.name }}</td>
+    <td>{{ object.grade }}</td>
+    <td>{{ object.letter }}</td>
+    <td>{{ object.passportserialnumber }}</td>
+    <td>{{ object.passportissued }}</td>
+    <td>{{ object.homeaddress }}</td>
+    <td>{{ object.phone }}</td>
+    <td>{{ object.parentname }}</td>
+    <td>{{ object.parentpassportserialnumber }}</td>
+    <td>{{ object.parentpassportissued }}</td>
+    <td>{{ object.parentinn }}</td>
+    <td>{{ object.parenthomeaddress }}</td>
+    <td>{{ object.parentphone }}</td>
+    <td>{{ object.created }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'CSPCApp_student_create' %}">Create new Student</a>
+{% endblock %}

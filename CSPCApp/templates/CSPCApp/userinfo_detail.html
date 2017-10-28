@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'CSPCApp_userinfo_list' %}">UserInfo Listing</a></p>
+<table class="table">
+<tr><td>name</td><td>{{ object.name }}</td></tr>
+<tr><td>typeofuser</td><td>{{ object.typeofuser }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit UserInfo</a>
+
+{% endblock %}

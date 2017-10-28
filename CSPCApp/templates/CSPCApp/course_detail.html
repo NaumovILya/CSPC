@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'CSPCApp_course_list' %}">Course Listing</a></p>
+<table class="table">
+<tr><td>direction</td><td>{{ object.direction }}</td></tr>
+<tr><td>name</td><td>{{ object.name }}</td></tr>
+<tr><td>priceforanhour</td><td>{{ object.priceforanhour }}</td></tr>
+<tr><td>numberofhours</td><td>{{ object.numberofhours }}</td></tr>
+<tr><td>numberofmounths</td><td>{{ object.numberofmounths }}</td></tr>
+<tr><td>countinaweek</td><td>{{ object.countinaweek }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Course</a>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'CSPCApp_student_list' %}">Student Listing</a></p>
+<table class="table">
+<tr><td>school</td><td>{{ object.school }}</td></tr>
+<tr><td>name</td><td>{{ object.name }}</td></tr>
+<tr><td>grade</td><td>{{ object.grade }}</td></tr>
+<tr><td>letter</td><td>{{ object.letter }}</td></tr>
+<tr><td>passportserialnumber</td><td>{{ object.passportserialnumber }}</td></tr>
+<tr><td>passportissued</td><td>{{ object.passportissued }}</td></tr>
+<tr><td>homeaddress</td><td>{{ object.homeaddress }}</td></tr>
+<tr><td>phone</td><td>{{ object.phone }}</td></tr>
+<tr><td>parentname</td><td>{{ object.parentname }}</td></tr>
+<tr><td>parentpassportserialnumber</td><td>{{ object.parentpassportserialnumber }}</td></tr>
+<tr><td>parentpassportissued</td><td>{{ object.parentpassportissued }}</td></tr>
+<tr><td>parentinn</td><td>{{ object.parentinn }}</td></tr>
+<tr><td>parenthomeaddress</td><td>{{ object.parenthomeaddress }}</td></tr>
+<tr><td>parentphone</td><td>{{ object.parentphone }}</td></tr>
+<tr><td>created</td><td>{{ object.created }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Student</a>
+
+{% endblock %}

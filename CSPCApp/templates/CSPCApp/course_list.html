@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'CSPCApp_course_list' %}">Course Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>direction</td>
+    <td>name</td>
+    <td>priceforanhour</td>
+    <td>numberofhours</td>
+    <td>numberofmounths</td>
+    <td>countinaweek</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.direction }}</td>
+    <td>{{ object.name }}</td>
+    <td>{{ object.priceforanhour }}</td>
+    <td>{{ object.numberofhours }}</td>
+    <td>{{ object.numberofmounths }}</td>
+    <td>{{ object.countinaweek }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'CSPCApp_course_create' %}">Create new Course</a>
+{% endblock %}

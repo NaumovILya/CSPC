@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{#<p><a class="btn btn-default" href="{% url 'CSPCApp_student_list' %}">Student Listing</a></p>#}
+{#<form method="post">#}
+	{#{% csrf_token %}#}
+	{#{{form|crispy}}#}
+	{#<button class="btn btn-primary" type="submit">Submit</button>#}
+	{#</form>#}
+    <h1>Добавить ученика в базу</h1>
+    <br>
+<form method="post">
+	{% csrf_token %}
+    <div>
+        <label> Школа </label> <input type="text" name="school" maxlength="64" class="textinput textInput" required id="id_school" />
+        <label> Класс </label> <input type="number" name="grade" class="numberinput" required id="id_grade" />
+        <label> Литер класса </label> <input type="text" name="letter" maxlength="2" class="textinput textInput" required id="id_letter" />
+    </div>
+    <br>
+    <div class="table2">
+        <table align="left" class="table">
+            <caption>Ученик</caption>
+            <tr>
+                <td><label> ФИО </label></td>
+                <td><input type="text" name="name" maxlength="64" class="textinput textInput" required id="id_name" /></td>
+            </tr>
+            <tr>
+                <td><label> Серия номер </label></td>
+                <td><input type="number" name="passportserialnumber" min="-9223372036854775808" max="9223372036854775807" class="numberinput" required id="id_passportserialnumber" /></td>
+            </tr>
+            <tr>
+                <td><label> Выдан </label></td>
+                <td><input type="text" name="passportissued" maxlength="128" class="textinput textInput" required id="id_passportissued" /></td>
+            </tr>
+            <tr>
+                <td><label> Адрес </label></td>
+                <td><input type="text" name="homeaddress" maxlength="30" class="textinput textInput" required id="id_homeaddress" /></td>
+            </tr>
+            <tr>
+                <td><label> Телефон </label></td>
+                <td><input type="number" name="phone" min="-9223372036854775808" max="9223372036854775807" class="numberinput" required id="id_phone" /></td>
+            </tr>
+        </table>
+    </div>
+    <div class="table2">
+        <table align="left" class="table">
+            <caption>Родитель</caption>
+            <tr>
+                <td><label> ФИО </label></td>
+                <td><input type="text" name="parentname" maxlength="64" class="textinput textInput" required id="id_parentname" /></td>
+            </tr>
+            <tr>
+                <td><label> Серия номер </label></td>
+                <td><input type="number" name="parentpassportserialnumber" min="-9223372036854775808" max="9223372036854775807" class="numberinput" required id="id_parentpassportserialnumber" /></td>
+            </tr>
+            <tr>
+                <td><label> Выдан </label></td>
+                <td><input type="text" name="parentpassportissued" maxlength="128" class="textinput textInput" required id="id_parentpassportissued" /></td>
+            </tr>
+            <tr>
+                <td><label> ИНН </label></td>
+                <td><input type="number" name="parentinn" min="-9223372036854775808" max="9223372036854775807" class="numberinput" required id="id_parentinn" /></td>
+            </tr>
+            <tr>
+                <td><label> Адрес </label></td>
+                <td><input type="text" name="parenthomeaddress" maxlength="128" class="textinput textInput" required id="id_parenthomeaddress" /></td>
+            </tr>
+            <tr>
+                <td><label> Телефон </label></td>
+                <td><input type="number" name="parentphone" min="-9223372036854775808" max="9223372036854775807" class="numberinput" required id="id_parentphone" /></td>
+            </tr>
+        </table>
+{#        <br>#}
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+{#	<div id="div_id_created" class="control-group">#}
+{#		<label for="id_created" class="control-label requiredField">#}
+{#		Created<span class="asteriskField">*</span> </label>#}
+{#        <div class="controls"> <input type="text" name="created" value="2017-10-28 11:13:48" class="datetimeinput" required id="id_created" /> <input type="hidden" name="initial-created" value="2017-10-28 11:13:48" id="initial-id_created" /> </div>#}
+{#	</div>#}
+	<button type="submit">Submit</button>
+</form>
+{% endblock %}

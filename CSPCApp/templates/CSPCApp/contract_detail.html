@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'CSPCApp_contract_list' %}">Contract Listing</a></p>
+<table class="table">
+<tr><td>number</td><td>{{ object.number }}</td></tr>
+<tr><td>status</td><td>{{ object.status }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Contract</a>
+
+{% endblock %}

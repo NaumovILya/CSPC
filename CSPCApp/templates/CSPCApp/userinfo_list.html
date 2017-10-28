@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'CSPCApp_userinfo_list' %}">UserInfo Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>name</td>
+    <td>typeofuser</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.name }}</td>
+    <td>{{ object.typeofuser }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'CSPCApp_userinfo_create' %}">Create new UserInfo</a>
+{% endblock %}
